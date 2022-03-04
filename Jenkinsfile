@@ -2,20 +2,15 @@ pipeline {
     agent any
 
     stages {
+        stage('Win') {
+            steps {
+                powershell 'Write-Output "Hello, World!"'
+            }
+        }
         stage('Verify Branch') {
             steps {
                 echo "$GIT_BRANCH"
             }
-        }
-        stage('GitVer') {
-            steps {
-                bat 'call git --version'
-            }
-        }
-        stage('Build'){
-            steps {                
-                powershell 'pwsh --version'
-            }
-        }        
+        }       
     }
 }
