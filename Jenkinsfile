@@ -9,7 +9,7 @@ pipeline {
         }
         stage('pwsh doc'){
             steps {
-                pwsh 'docker images -a'
+                pwsh "docker images -a"
             }
         }        
     }
