@@ -7,9 +7,14 @@ pipeline {
                 echo "$GIT_BRANCH"
             }
         }
+        stage('pwsh Hello'){
+            steps {
+                pwsh(script 'Write-Out "Hello World"')
+            }
+        }
         stage('Docker Build') {
             steps {
-                sh 'docker images -a'
+                pwsh('docker images -a')
             }
         }
     }
