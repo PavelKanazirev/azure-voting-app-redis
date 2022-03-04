@@ -10,10 +10,11 @@ pipeline {
         stage('Docker Build') {
             steps {
                 sh 'git --version'
-                sh 'cd azure-vote/'
-                sh 'docker images -a'
-                sh 'docker build -t jenkins-pipeline'
-                sh 'docker images -a'
+                dir('azure-vote') {
+                    sh 'docker images -a'
+                    // some block
+                }
+
                 sh 'cd ..'
             }
         }
