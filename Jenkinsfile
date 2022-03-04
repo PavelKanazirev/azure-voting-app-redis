@@ -9,7 +9,7 @@ pipeline {
         }
         stage('GitVer') {
             steps {
-                sh 'git --version'
+                bat 'call git --version'
             }
         }
         stage('Build'){
