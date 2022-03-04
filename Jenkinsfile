@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Build'){
             steps {
-                pwsh(script: 'docker images -a')
+                powershell 'pwsh --version'
             }
         }        
     }
