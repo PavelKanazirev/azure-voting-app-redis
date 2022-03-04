@@ -7,8 +7,13 @@ pipeline {
                 echo "$GIT_BRANCH"
             }
         }
-        stage('Build'){
+        stage('GitVer') {
             steps {
+                git --version
+            }
+        }
+        stage('Build'){
+            steps {                
                 powershell 'pwsh --version'
             }
         }        
