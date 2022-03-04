@@ -12,9 +12,9 @@ pipeline {
                 pwsh(script: 'docker images -a')
             }
         }
-        stage('Docker Build') {
+        stage('Docker PS') {
             steps {
-                echo "Issues here?"
+                pwsh(script: 'docker ps -a')
             }
         }
     }
