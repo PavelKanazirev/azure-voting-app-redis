@@ -30,6 +30,12 @@ pipeline {
                 echo "Workspace is $WORKSPACE"
                 dir("$WORKSPACE/azure-vote"){
                     sh 'ls'
+                    script {
+                        docker.withRegistry('https://index.docker.io/v1/','DockerHub'){
+                            def image = docker.build('pavelkanazirev/docker101tutorial:latest')
+                            image.push()
+                        }
+                    }
                 }
             }
         }
