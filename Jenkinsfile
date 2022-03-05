@@ -25,5 +25,15 @@ pipeline {
                 }
             }
         }
+        stage('Push Container') {
+            steps {
+                echo "Workspace is $WORKSPACE"
+                dir("$WORKSPACE/azure-vote"){
+                    script {
+                        
+                    }
+                }
+            }
+        }
     }
 }
