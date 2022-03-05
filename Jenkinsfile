@@ -31,7 +31,7 @@ pipeline {
                 dir("$WORKSPACE/azure-vote"){
                     sh 'ls'
                     script {
-                        docker.withRegistry('https://index.docker.io/v1/','Jenkins2Docker'){
+                        docker.withRegistry('https://index.docker.io/v1/','pavelkanazirev-DockerHub'){
                             def image = docker.build('pavelkanazirev/docker101tutorial:latest')
                             image.push()
                         }
