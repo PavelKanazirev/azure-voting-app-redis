@@ -29,9 +29,7 @@ pipeline {
             steps {
                 echo "Workspace is $WORKSPACE"
                 dir("$WORKSPACE/azure-vote"){
-                    script {
-                        
-                    }
+                    sh 'ls'
                 }
             }
         }
