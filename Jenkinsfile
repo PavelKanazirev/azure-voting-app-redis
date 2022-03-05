@@ -15,6 +15,7 @@ pipeline {
         stage('Start test app') {
             steps {
                 sh 'git --version'
+                sh 'docker-compose up -d'
             }
             post {
                 success {
