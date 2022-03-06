@@ -7,10 +7,16 @@ pipeline {
         stage('Call Library Hello-World Function') {
             steps {
                 script {
-                    helloWorld()
+                    helloArgs('Jenkins!')
                 }
             }
         }
- 
+        stage('Call Library Hello-World Function') {
+            steps {
+                script {
+                    helloArgs.goodbyeWorld('Jenkins!')
+                }
+            }
+        }
     }
 }
