@@ -26,13 +26,11 @@ pipeline {
             }
         }
         stage('Push Container') {
-            steps {
-                echo "Workspace is $WORKSPACE"
-                    when { branch 'add-tests'}
-                    steps {
-                        echo 'This is the add-tests branch'
-                    }
-            }
+                when { branch 'add-tests'}
+                steps {
+                    echo "Workspace is $WORKSPACE"
+                    echo 'This is the add-tests branch'
+                }
         }
     }
 }
