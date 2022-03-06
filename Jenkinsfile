@@ -28,12 +28,10 @@ pipeline {
         stage('Push Container') {
             steps {
                 echo "Workspace is $WORKSPACE"
-                stage('Echo branch') {
                     when { branch 'add-tests'}
                     steps {
                         echo 'This is the add-tests branch'
                     }
-                }
             }
         }
     }
