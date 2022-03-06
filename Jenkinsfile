@@ -28,13 +28,10 @@ pipeline {
         stage('Push Container') {
             steps {
                 echo "Workspace is $WORKSPACE"
-                dir("$WORKSPACE/azure-vote"){
-                    sh 'ls'
-                    script {
-                        docker.withRegistry('https://index.docker.io/v1/','pavelkanazirev-DockerHub'){
-                            def image = docker.build('pavelkanazirev/docker101tutorial:latest')
-                            image.push()
-                        }
+                stage('Echo branch') {
+                    when { branch 'add-tests'}
+                    steps {
+                        echo 'This is the add-tests branch'
                     }
                 }
             }
