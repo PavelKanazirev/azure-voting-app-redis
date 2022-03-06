@@ -4,14 +4,14 @@ pipeline {
     agent any
 
     stages {
-        stage('Call Library Hello-World Function') {
+        stage('Call Library Function') {
             steps {
                 script {
                     helloArgs('Jenkins!')
                 }
             }
         }
-        stage('Call Library Hello-World Function') {
+        stage('Call Additional Library Function') {
             steps {
                 script {
                     helloArgs.goodbyeWorld('Jenkins!')
