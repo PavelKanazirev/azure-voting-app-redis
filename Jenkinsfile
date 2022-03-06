@@ -2,35 +2,24 @@ pipeline {
     agent any
 
     stages {
-        stage('Verify Branch') {
+        stage('Echo - Declarative') {
+            when { branch pattern: "\\w+\\-pipeline", comparator: "REGEXP" }
             steps {
-                echo "$GIT_BRANCH"
+                echo 'This is a pipeline branch'
             }
         }
-        stage('Docker Build') {
+        stage('Echo - Scripted') {
             steps {
-                sh 'git --version'
-            }
-        }
-        stage('Start test app') {
-            steps {
-                sh 'git --version'
-            }
-            post {
-                success {
-                    echo "App started successfully"
-                }
-                failure {
-                    echo "App failed to start"
+                script {
+                    if (env.BRANCH_NAME == 'master') {
+                        echo 'This is the master branch'
+                    }
+                    else
+                    {
+                        echo 'This is NOT the master branch'
+                    }
                 }
             }
-        }
-        stage('Push Container') {
-                when { branch 'add-tests'}
-                steps {
-                    echo "Workspace is $WORKSPACE"
-                    echo 'This is the add-tests branch'
-                }
         }
     }
 }
